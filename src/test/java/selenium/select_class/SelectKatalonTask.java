@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+import static org.testng.Assert.*;
+
 public class SelectKatalonTask {
     @Test
     public void validateAppointmentFunctionality() throws InterruptedException {
@@ -52,10 +54,10 @@ public class SelectKatalonTask {
         //on Summary page, verifying that Appointment Confirmation text is displayed
         WebElement confirmedText = driver.findElement(By.tagName("h2"));
         String actualText = confirmedText.getText();
-        String expectedText = "Appointment Confirmation";
+        String expectedText = "Appointment Confirmation"; // Provided by PO or BA
 
         // Assertion Validation
-        Assert.assertEquals(actualText, expectedText, "Failed to validate");
+        assertEquals(actualText, expectedText, "Failed to validate actual Texts from final page");
 
         //retrieving client comment
         WebElement clientComment = driver.findElement(By.id("comment"));
@@ -64,11 +66,12 @@ public class SelectKatalonTask {
                 "thank you!";
 
         // Assertion for validation
-        Assert.assertEquals(actualComment, expectedComment);
+        assertEquals(actualComment, expectedComment);
 
 
         //clicking 'Go to Homepage' button
         driver.findElement(By.xpath("//a[contains(.,'Go to Homepage')]")).click();
+
 
 
 
