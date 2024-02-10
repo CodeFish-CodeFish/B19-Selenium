@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 import static org.testng.Assert.*;
 
@@ -66,7 +67,7 @@ public class SelectKatalonTask {
                 "thank you!";
 
         // Assertion for validation
-        assertEquals(actualComment, expectedComment);
+        assertEquals(actualComment, expectedComment, "some message");
 
 
         //clicking 'Go to Homepage' button
@@ -75,7 +76,7 @@ public class SelectKatalonTask {
 
 
 
-
     }
+
 
 }
