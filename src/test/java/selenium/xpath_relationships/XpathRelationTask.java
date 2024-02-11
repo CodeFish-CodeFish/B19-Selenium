@@ -106,6 +106,36 @@ public class XpathRelationTask {
     }
 
 
+    @Test
+    public void homeworkTablePagination() throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.lambdatest.com/selenium-playground/");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.findElement(By.xpath("//a[contains(.,'Table Pagination')]")).click();
+        Thread.sleep(2000);
+
+        WebElement dropdown = driver.findElement(By.id("maxRows"));
+        Select select = new Select(dropdown);
+        select.selectByVisibleText("Show ALL Rows");
+
+        List<WebElement> firstNames = driver.findElements(By.xpath("//tr//td[2]"));
+        List<WebElement> lastNames = driver.findElements(By.xpath("//tr//td[3]"));
+        List<WebElement> emails = driver.findElements(By.xpath("//tr//td[4]"));
+
+        Map<String, String> clientInfo = new HashMap<>();
+
+        for (int i = 0; i < firstNames.size(); i++) {
+
+            clientInfo.put(firstNames.get(i).getText() + "."+lastNames.get(i).getText(), emails.get(i).getText());
+
+        }
+
+        System.out.println(clientInfo);
+    }
+
+
 
 
 
