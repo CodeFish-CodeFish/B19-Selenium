@@ -1,5 +1,6 @@
 package selenium.utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -35,7 +36,7 @@ public class BrowserUtils {
                 break;
 
             default:
-                System.out.println("Please choose correct select methods");
+                System.out.println("Please choose correct select method");
         }
 
     }
@@ -43,5 +44,10 @@ public class BrowserUtils {
     public static List<WebElement> getOptionsSelect(WebElement element){
         Select select = new Select(element);
        return select.getOptions();
+    }
+
+
+    public static WebElement findElement(WebDriver driver, By by){
+        return driver.findElement(by);
     }
 }

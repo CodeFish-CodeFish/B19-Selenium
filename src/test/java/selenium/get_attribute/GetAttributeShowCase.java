@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import javax.swing.plaf.basic.BasicButtonUI;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -26,14 +27,34 @@ public class GetAttributeShowCase {
 
         List<WebElement> allCheckBoxes = driver.findElements(By.xpath("//div[@role='checkbox']"));
 
-        for (WebElement checkbox : allCheckBoxes){
+        for (WebElement checkbox : allCheckBoxes) {
 
-            if (checkbox.getAttribute("aria-checked").equals("false")){
+            if (checkbox.getAttribute("aria-checked").equals("false")) {
                 checkbox.click();
             }
 
         }
 
+
+    }
+
+    @Test
+    public void getAttribute() throws InterruptedException {
+
+        WebDriver driver = new ChromeDriver();
+        driver.navigate().to("https://codefish.io/contacts");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+        Thread.sleep(2000);
+
+
+        WebElement element = driver.findElement(By.xpath("//input[@name='name']"));
+        String attribute = element.getAttribute("class");
+        System.out.println(attribute);
+        System.out.println("element.getAttribute(\"type\") = " + element.getAttribute("type"));
+        System.out.println("placeholder = " + element.getAttribute("placeholder"));
 
 
     }

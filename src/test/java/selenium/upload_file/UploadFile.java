@@ -38,9 +38,6 @@ public class UploadFile {
 
         Assert.assertEquals(actualFileName, expectedFileName, "Failed to validate file name text after upload");
 
-
-
-
     }
 
 }
