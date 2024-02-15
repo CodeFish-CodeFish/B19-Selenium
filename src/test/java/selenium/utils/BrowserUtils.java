@@ -1,8 +1,10 @@
 package selenium.utils;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -16,6 +18,13 @@ public class BrowserUtils {
     public static String getTitle(WebDriver driver){
 
         return driver.getTitle().trim();
+
+    }
+
+    public static void acceptAlert(WebDriver driver){
+       // recursion
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
 
     }
 
@@ -47,7 +56,7 @@ public class BrowserUtils {
     }
 
 
-    public static WebElement findElement(WebDriver driver, By by){
+    public static WebElement findElement(WebDriver driver, By by)  {
         return driver.findElement(by);
     }
 }
