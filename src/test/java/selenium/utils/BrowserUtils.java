@@ -11,27 +11,45 @@ import java.util.List;
 
 public class BrowserUtils {
 
-    public static String getText(WebElement element){
+    public static String getText(WebElement element) {
         return element.getText().trim();
     }
 
-    public static String getTitle(WebDriver driver){
+    public static String getTitle(WebDriver driver) {
 
         return driver.getTitle().trim();
 
     }
 
-    public static void acceptAlert(WebDriver driver){
-       // recursion
+    public static void acceptAlert(WebDriver driver) {
+        // recursion
         Alert alert = driver.switchTo().alert();
         alert.accept();
 
     }
 
+    public static void dismissAlert(WebDriver driver) {
 
-    public static void selectBy(WebElement element, String value, String methodName){
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+
+    }
+
+    public static void sendKeysToAlert(WebDriver driver, String keysToSend) {
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys(keysToSend);
+    }
+
+    public static String alertGetText(WebDriver driver) {
+        Alert alert = driver.switchTo().alert();
+        return alert.getText().trim();
+
+    }
+
+
+    public static void selectBy(WebElement element, String value, String methodName) {
         Select select = new Select(element);
-        switch (methodName){
+        switch (methodName) {
             case "visibleText":
                 select.selectByVisibleText(value);
                 break;
@@ -50,13 +68,13 @@ public class BrowserUtils {
 
     }
 
-    public static List<WebElement> getOptionsSelect(WebElement element){
+    public static List<WebElement> getOptionsSelect(WebElement element) {
         Select select = new Select(element);
-       return select.getOptions();
+        return select.getOptions();
     }
 
 
-    public static WebElement findElement(WebDriver driver, By by)  {
+    public static WebElement findElement(WebDriver driver, By by) {
         return driver.findElement(by);
     }
 }

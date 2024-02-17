@@ -10,20 +10,18 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import selenium.utils.BrowserUtils;
+import selenium.utils.ConfigReader;
+import selenium.utils.DriverHelper;
 
 import java.time.Duration;
 
 public class UploadFile2 {
 
-    WebDriver driver;
+    WebDriver driver = DriverHelper.getDriver();
 
     @BeforeMethod
     public void initializeDriver() {
-        driver = new ChromeDriver();
-        driver.get("https://www.techlistic.com/p/selenium-practice-form.html");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        System.out.println("driver has been initialized");
+        driver.get(ConfigReader.readProperty("techURL"));
     }
 
     @Test

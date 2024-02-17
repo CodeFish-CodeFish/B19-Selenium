@@ -32,13 +32,13 @@ public class AlertPractice {
         WebElement firstAlert = driver.findElement(By.xpath("//h5[contains(.,'Normal alert')]//following-sibling::button"));
         firstAlert.click();
         Thread.sleep(3000);
-        BrowserUtils.acceptAlert(driver);
-        Alert alert = driver.switchTo().alert();
 
-        String actualText = alert.getText();
+        String actualText = BrowserUtils.alertGetText(driver);
+        System.out.println(actualText);
         String expectedText = "Oops, something went wrong!";
         Assert.assertEquals(actualText, expectedText, "Failed to validate JS Alert message");
-        alert.accept();
+        BrowserUtils.acceptAlert(driver);
+
 
         WebElement secondAlert = driver.findElement(By.xpath("//h5[contains(.,'SweetAlert')]//following-sibling::button"));
         secondAlert.click();

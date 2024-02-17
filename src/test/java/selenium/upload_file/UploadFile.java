@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import selenium.utils.BrowserUtils;
+import selenium.utils.DriverHelper;
 
 import java.time.Duration;
 
@@ -14,6 +15,8 @@ public class UploadFile {
 
     @Test
     public void TC_6() throws InterruptedException {
+
+
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/upload");
         driver.manage().window().maximize();
