@@ -26,8 +26,9 @@ public class ClickAndHold {
         WebElement draggable = driver.findElement(By.cssSelector("#draggable"));
         WebElement dropPlace = driver.findElement(By.cssSelector("div[id='draggable']~div[id='droppable']"));
 
-        Actions actions = new Actions(driver);
-        actions.clickAndHold(draggable).moveToElement(dropPlace).release().perform();
+        BrowserUtils.clickHoldAndDrop(driver, draggable, dropPlace);
+//        Actions actions = new Actions(driver);
+//        actions.clickAndHold(draggable).moveToElement(dropPlace).release().perform();
 
         WebElement droppedMessage = driver.findElement(By.xpath("//p[.='Dropped!']"));
         Assert.assertEquals(BrowserUtils.getText(droppedMessage), "Dropped!");

@@ -9,6 +9,7 @@ public class BeforeAfterMethods {
     @BeforeMethod
     public void initialize(){
         System.out.println("I am from BeforeMethod");
+
     }
 
     @Test

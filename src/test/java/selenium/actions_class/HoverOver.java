@@ -47,6 +47,27 @@ public class HoverOver {
         System.out.println(map);
     }
 
+    @Test
+    public void hoverOverTask() throws InterruptedException {
+        driver.get("https://demos.telerik.com/kendo-ui/fx/expand");
+        List<WebElement> allImages = driver.findElements(By.xpath("//div[@class='product k-listview-item']//img"));
+        List<WebElement> allProductNames = driver.findElements(By.xpath("//h3"));
+        List<WebElement> allPrice = driver.findElements(By.xpath("//div[@class='product-description']//p"));
+        Map<String, String> productInfo = new HashMap<>();
+        Actions actions = new Actions(driver);
+
+        for (int i = 0; i < allImages.size(); i++) {
+            Thread.sleep(300);
+            actions.moveToElement(allImages.get(i)).perform();
+            productInfo.put(allProductNames.get(i).getText(), allPrice.get(i).getText().replace("$", ""));
+
+
+        }
+        System.out.println(productInfo);
+
+
+    }
+
 
 
     @AfterMethod

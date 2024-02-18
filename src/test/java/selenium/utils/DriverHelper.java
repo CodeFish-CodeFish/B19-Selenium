@@ -12,6 +12,10 @@ import java.time.Duration;
 public class DriverHelper {
 
     // Singleton pattern design
+    // Main point of Singleton pattern design in our case is
+    // to centralize our driver
+    //NOTE: Singleton is used not only by testers, but also
+    // used by developers
 
     private static WebDriver driver; // encapsulation
 
