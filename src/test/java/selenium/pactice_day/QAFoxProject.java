@@ -47,6 +47,43 @@ public class QAFoxProject {
         WebElement shoppingCartLink = driver.findElement(By.xpath("//a[.='shopping cart']"));
         shoppingCartLink.click();
 
+        WebElement checkoutBtn = driver.findElement(By.xpath("//a[contains(text(),'Checkout')]"));
+        checkoutBtn.click();
+
+        WebElement radioBtnGuest = driver.findElement(By.cssSelector("input[value='guest']"));
+
+        if (!radioBtnGuest.isSelected()){
+            radioBtnGuest.click();
+        }
+
+        WebElement continueBtn = driver.findElement(By.cssSelector("input[id='button-account']"));
+        continueBtn.click();
+
+        WebElement firstName = driver.findElement(By.cssSelector("#input-payment-firstname"));
+        firstName.sendKeys("Kuba");
+
+        WebElement lastName = driver.findElement(By.cssSelector("#input-payment-lastname"));
+        lastName.sendKeys("Abdy");
+        WebElement email = driver.findElement(By.cssSelector("#input-payment-email"));
+        email.sendKeys("test@test.com");
+        WebElement telephone = driver.findElement(By.cssSelector("#input-payment-telephone")); // css
+        telephone.sendKeys("42343214324");
+        WebElement address1 = driver.findElement(By.id("input-payment-address-1")); // this is not css
+        address1.sendKeys("test st");
+        WebElement city = driver.findElement(By.id("input-payment-city"));
+        city.sendKeys("Chitown");
+        WebElement zipCode = driver.findElement(By.id("input-payment-postcode"));
+        zipCode.sendKeys("60656");
+        WebElement countryDropDown = driver.findElement(By.id("input-payment-country"));
+        BrowserUtils.selectBy(countryDropDown, "223","value");
+
+        WebElement state = driver.findElement(By.cssSelector("#input-payment-zone"));
+        BrowserUtils.selectBy(state, "3635", "value");
+        WebElement continueBtn2 = driver.findElement(By.cssSelector("#button-guest"));
+        continueBtn2.click();
+
+
+
 
 
     }

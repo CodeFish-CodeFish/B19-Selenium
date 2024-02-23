@@ -134,4 +134,32 @@ public class BrowserUtils {
         }
 
     }
+
+    // javascript re-usable methods below
+    public static String getTitleWithJS(WebDriver driver){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return js.executeScript("return document.title").toString();
+
+    }
+
+    public static void clickWithJS(WebDriver driver, WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", element);
+    }
+
+    public static void scrollIntoViewJS(WebDriver driver, WebElement element){
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true)", element);
+
+    }
+
+    public static void scrollWithPointJS(WebDriver driver, WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        Point point = element.getLocation();
+        int x = point.getX();
+        int y = point.getY();
+        js.executeScript("window.scrollTo(" + x + "," + y + ")");
+    }
+
 }
