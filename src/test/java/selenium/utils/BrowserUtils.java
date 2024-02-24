@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public class BrowserUtils {
 
@@ -160,6 +161,65 @@ public class BrowserUtils {
         int x = point.getX();
         int y = point.getY();
         js.executeScript("window.scrollTo(" + x + "," + y + ")");
+    }
+
+    public static void switchWindows(WebDriver driver){
+
+        String mainPageId = driver.getWindowHandle();
+        Set<String> windowHandles = driver.getWindowHandles();
+        for (String id : windowHandles){
+
+            if (!id.equals(mainPageId)){
+                driver.switchTo().window(id);
+                System.out.println("Driver switched to new window");
+                break;
+            }
+
+        }
+
+
+    }
+
+    public static void switchWindowsWithTitle(WebDriver driver, String title){
+
+        Set<String> windowHandles = driver.getWindowHandles();
+        for (String id : windowHandles){
+            driver.switchTo().window(id);
+            if (driver.getTitle().contains(title)){
+                break;
+            }
+        }
+
+    }
+
+    public static void switchWindowsWithURL(WebDriver driver, String url){
+        Set<String> windowHandles = driver.getWindowHandles();
+        for (String id : windowHandles){
+            driver.switchTo().window(id);
+            if (driver.getCurrentUrl().contains(url)){
+                break;
+            }
+        }
+    }
+
+    public static void switchDriverToIframe(WebDriver driver, String nameOrId){
+        driver.switchTo().frame(nameOrId);
+        System.out.println("driver switched to iframe: " + nameOrId);
+    }
+
+    public static void switchDriverToIframe(WebDriver driver, WebElement element){
+        driver.switchTo().frame(element);
+        System.out.println("drive switched to iframe using webElement");
+    }
+
+    public static void switchDriverToDefaultContent(WebDriver driver){
+        // use this method only when you are dealing with iFrames
+        driver.switchTo().defaultContent();
+    }
+
+    public static void switchDriverToParentFrame(WebDriver driver){
+        // use this method only when you are dealing with iFrames
+        driver.switchTo().parentFrame();
     }
 
 }
