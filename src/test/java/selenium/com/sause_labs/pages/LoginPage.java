@@ -8,9 +8,10 @@ import selenium.utils.BrowserUtils;
 
 public class LoginPage {
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
 
     @FindBy(css = "#user-name")
     WebElement username;
@@ -24,17 +25,15 @@ public class LoginPage {
     @FindBy(tagName = "h3")
     WebElement errorMessage;
 
-    public void loginFunctionality(String username, String password){
+    public void loginFunctionality(String username, String password) {
         this.username.sendKeys(username);
         this.password.sendKeys(password);
         loginBtn.click();
     }
 
-    public String errorMsg(){
+    public String errorMsg() {
         return BrowserUtils.getText(errorMessage);
     }
-
-
 
 
 }
