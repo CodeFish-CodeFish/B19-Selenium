@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Regression">
+    <test name="Regression for all" >
+        <classes>
+            <class name="selenium.com.yale.tests.YaleScript"></class>
+            <class name="selenium.com.sause_labs.tests.SauceLabScripts"></class>
+            <class name="selenium.com.qa_fox.tests.QAFoxScript"></class>
+            <class name="selenium.com.php.tests.PhpTest"></class>
+            <class name="selenium.com.blaze.tests.BlazeScript"></class>
+        </classes>
+    </test>
+</suite>

@@ -9,6 +9,7 @@ import selenium.com.qa_fox.pages.QAFoxMainPage;
 public class QAFoxScript extends QABase {
 
 
+
     @Test
     public void TC_01_PositiveScenario() throws InterruptedException {
         QAFoxMainPage mainPage = new QAFoxMainPage(driver);
@@ -18,19 +19,17 @@ public class QAFoxScript extends QABase {
         listPage.validateSorting();
     }
 
-    @Test
-    public void validateCustomerCreateProfile() throws InterruptedException {
+    @Test(dataProvider = "dataQa", dataProviderClass = DataQAFox.class)
+    public void validateCustomerCreateProfile(String firstName, String lastName, String email, String telephone, String password) throws InterruptedException {
 
         QAFoxMainPage mainPage = new QAFoxMainPage(driver);
         mainPage.clickOnRegister(driver);
 
-        String firstName = "Loki";
+
 
         ClientRegisterPage registerPage = new ClientRegisterPage(driver);
-        registerPage.createCustomerProfile(firstName, "Test", "loki@test.com",
-                "31232323", "qwert");
-
-
+        registerPage.createCustomerProfile(firstName, lastName, email,
+                telephone, password);
 
     }
 
