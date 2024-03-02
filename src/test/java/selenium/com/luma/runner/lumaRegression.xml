@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Luma suite">
+    <test name="Luma test" >
+
+        <parameter name="email" value="vnvnv@kjk.com"></parameter>
+        <parameter name="firstName" value="Thomas"></parameter>
+        <parameter name="lastName" value="Shelby"></parameter>
+        <parameter name="address" value="1 N Dearborn st"></parameter>
+        <parameter name="city" value="Chitown"></parameter>
+        <parameter name="zipCode" value="60656"></parameter>
+        <parameter name="telephone" value="31231242343"></parameter>
+
+        <classes>
+            <class name="selenium.com.luma.tests.LumaScript"></class>
+        </classes>
+    </test>
+</suite>

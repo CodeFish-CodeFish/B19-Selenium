@@ -1,6 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="yale suite">
     <test name="yale test" >
+
+        <parameter name="name" value="Thomas Shelby"></parameter>
+        <parameter name="email" value="email@test.com"></parameter>
+        <parameter name="website" value="www.google.com"></parameter>
+        <parameter name="text" value="test test"></parameter>
+
        <classes>
            <class name="selenium.com.yale.tests.YaleScript"></class>
        </classes>
