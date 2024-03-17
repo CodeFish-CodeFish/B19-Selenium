@@ -25,6 +25,7 @@ public class SelectShowCase {
         WebElement dropdownElement = driver.findElement(By.xpath("//select[@id='select-demo']"));
 
         Select select = new Select(dropdownElement); // Select class is used only for dropdowns
+
 //        select.selectByVisibleText("Saturday");
 //        select.selectByIndex(7);
 //        select.selectByValue("Saturday");
